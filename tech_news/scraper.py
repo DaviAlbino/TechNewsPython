@@ -1,6 +1,17 @@
+import requests
+import time
+
+
 # Requisito 1 - iniciando o projeto
 def fetch(url):
-    """Seu código deve vir aqui"""
+    try:
+        response = requests.get(url, timeout=3)
+        time.sleep(1)
+        response.raise_for_status()
+    except (requests.HTTPError, requests.ReadTimeout):
+        return None
+    else:
+        return response.text
 
 
 # Requisito 2
