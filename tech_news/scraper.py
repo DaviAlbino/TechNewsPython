@@ -28,7 +28,12 @@ def scrape_updates(html_content):
 
 # Requisito 3
 def scrape_next_page_link(html_content):
-    """Seu código deve vir aqui"""
+    selector = Selector(html_content)
+    next_link = selector.css('a.next::attr(href)').get()
+    if (next_link):
+        return next_link
+    else:
+        None
 
 
 # Requisito 4
@@ -45,4 +50,5 @@ if __name__ == '__main__':
     url_news = 'https://blog.betrybe.com/'
     html = fetch(url_news)
     links_new = scrape_updates(html)
-    print(links_new)
+    next_page = scrape_next_page_link(html)
+    print(next_page)
