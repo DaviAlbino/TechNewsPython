@@ -1,4 +1,4 @@
-# Requisito 1
+# Requisito 1 - iniciando o projeto
 def fetch(url):
     """Seu código deve vir aqui"""
 
